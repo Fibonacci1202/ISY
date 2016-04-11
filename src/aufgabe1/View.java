@@ -186,7 +186,7 @@ public class View extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 private void BildModel() {
         BilderModel = new DefaultListModel();
-        for (int i = 0; i < 14; i++) {
+        for (int i = 0; i < 17; i++) {
             BilderModel.addElement(
                     new ImageIcon(getClass().getResource("Pictures/" + (i + 1) + ".jpg")));
         }
