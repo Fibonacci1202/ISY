@@ -79,6 +79,7 @@ public class View extends javax.swing.JFrame {
             }
         });
 
+        jList_Personennamen.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jList_Personennamen.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -196,7 +197,7 @@ private void BildModel() {
          PersonenModel = new DefaultListModel();
          
          try {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\Volkan\\Documents\\NetBeansProjects\\Aufgabe1\\src\\aufgabe1\\Personennamen.txt");
+            FileInputStream fstream = new FileInputStream("src/aufgabe1/Personennamen.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
     for(String line; (line = br.readLine()) != null; ) {
         PersonenModel.addElement(line);
@@ -212,7 +213,7 @@ private void BildModel() {
          PersonenModel = new DefaultListModel();
          int a = 0;
          try {
-            FileInputStream fstream = new FileInputStream("C:\\Users\\Volkan\\Documents\\NetBeansProjects\\Aufgabe1\\src\\aufgabe1\\Personennamen.txt");
+            FileInputStream fstream = new FileInputStream("src/aufgabe1/Personennamen.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
     for(String line; (line = br.readLine()) != null; ) {
         if(a==value) PersonenModel.addElement(line);
