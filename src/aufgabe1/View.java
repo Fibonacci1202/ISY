@@ -209,15 +209,22 @@ private void BildModel() {
     jList_Personennamen.setModel(PersonenModel);
 }
     
-    private void PersonenModelAuswahl(int value)  {
+    private void PersonenModelAuswahl(int value[])  {
          PersonenModel = new DefaultListModel();
-         int a = 0;
+         int counter = 0;
+         int index = 0;
+         
          try {
             FileInputStream fstream = new FileInputStream("src/aufgabe1/Personennamen.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-    for(String line; (line = br.readLine()) != null; ) {
-        if(a==value) PersonenModel.addElement(line);
-        a++;
+        for(String line; (line = br.readLine()) != null; ) {
+        if(value.length > index){
+        if(counter==value[index]){
+            PersonenModel.addElement(line);
+            index++;
+        }
+        }
+        counter++;
     }
     // line is not visible here.
 }       catch (IOException ex) {
@@ -230,7 +237,8 @@ private void BildModel() {
         ListSelectionListener BildListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                PersonenModelAuswahl(jList_BilderListe.getSelectedIndex());
+                //PersonenModelAuswahl(jList_BilderListe.getSelectedIndex());
+                PersonenModelAuswahl(jList_BilderListe.getSelectedIndices());
             }
         };
         jList_BilderListe.addListSelectionListener(BildListener);
