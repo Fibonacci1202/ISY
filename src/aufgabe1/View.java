@@ -237,7 +237,6 @@ private void BildModel() {
         ListSelectionListener BildListener = new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                //PersonenModelAuswahl(jList_BilderListe.getSelectedIndex());
                 PersonenModelAuswahl(jList_BilderListe.getSelectedIndices());
             }
         };
