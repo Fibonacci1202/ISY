@@ -35,6 +35,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ausschneiden"/>
                 <Property name="toolTipText" type="java.lang.String" value="Kopiert den ausgew&#xe4;hlen Text in die Zwischenablage und entfernt den selektierten Text."/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="true"/>
               </Properties>
               <Events>
@@ -51,6 +52,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kopieren"/>
                 <Property name="toolTipText" type="java.lang.String" value="Kopiert den ausgew&#xe4;hlen Text in die Zwischenablage."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemKopierenActionPerformed"/>
@@ -83,7 +85,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Gro&#xdf;buchstaben"/>
                 <Property name="toolTipText" type="java.lang.String" value="Wandelt den ausgew&#xe4;hlten Text in Gro&#xdf;buchstaben um."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGrossbuchstabenActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemKleinbuchstaben">
               <Properties>
@@ -95,7 +101,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kleinbuchstaben"/>
                 <Property name="toolTipText" type="java.lang.String" value="Wandelt den ausgew&#xe4;hlten Text in Kleinbuchstaben um."/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemKleinbuchstabenActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -185,7 +195,6 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -201,7 +210,6 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -220,9 +228,9 @@
               <Image iconType="3" name="/aufgabe2/Symbole/kopieren.gif"/>
             </Property>
             <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
+              <Image iconType="0" name="null"/>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 20, 0, 20]"/>
@@ -238,16 +246,16 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToolKopierenActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jToolAusschneiden">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
             </Property>
-            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
-            </Property>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 20, 0, 20]"/>
@@ -273,9 +281,8 @@
               <Image iconType="3" name="/aufgabe2/Symbole/einfuegen.gif"/>
             </Property>
             <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
+              <Image iconType="0" name="null"/>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 20, 0, 20]"/>
@@ -291,6 +298,9 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToolEinfuegenActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jToolGrossbuchstaben">
           <Properties>
@@ -299,9 +309,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Wandelt den ausgew&#xe4;hlten Text in Gro&#xdf;buchstaben um."/>
             <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
+              <Image iconType="0" name="null"/>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 20, 0, 20]"/>
@@ -317,6 +327,9 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToolGrossbuchstabenActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jToolKleinbuchstaben">
           <Properties>
@@ -325,9 +338,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Wandelt den ausgew&#xe4;hlten Text in Kleinbuchstaben um."/>
             <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/aufgabe2/Symbole/ausschneiden.gif"/>
+              <Image iconType="0" name="null"/>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 20, 0, 20]"/>
@@ -343,6 +356,9 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToolKleinbuchstabenActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -9,6 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -21,6 +23,7 @@ public class View extends javax.swing.JFrame {
      */
     public View() {
         initComponents();
+        DocumentListener();
     }
 
     /**
@@ -61,31 +64,33 @@ public class View extends javax.swing.JFrame {
 
         TextAreaLinks.setColumns(20);
         TextAreaLinks.setRows(5);
-        TextAreaLinks.setFocusable(false);
         jScrollPaneLinks.setViewportView(TextAreaLinks);
 
         TextAreaRechts.setColumns(20);
         TextAreaRechts.setRows(5);
-        TextAreaRechts.setFocusable(false);
         jScrollPaneRechts.setViewportView(TextAreaRechts);
 
         ToolBar.setFloatable(false);
         ToolBar.setRollover(true);
 
         jToolKopieren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/kopieren.gif"))); // NOI18N
-        jToolKopieren.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolKopieren.setFocusable(false);
+        jToolKopieren.setDisabledIcon(null);
+        jToolKopieren.setEnabled(false);
         jToolKopieren.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolKopieren.setMargin(new java.awt.Insets(0, 20, 0, 20));
         jToolKopieren.setMaximumSize(new java.awt.Dimension(40, 40));
         jToolKopieren.setMinimumSize(new java.awt.Dimension(50, 30));
         jToolKopieren.setPreferredSize(new java.awt.Dimension(50, 30));
         jToolKopieren.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolKopieren.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToolKopierenActionPerformed(evt);
+            }
+        });
         ToolBar.add(jToolKopieren);
 
         jToolAusschneiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolAusschneiden.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolAusschneiden.setFocusable(false);
+        jToolAusschneiden.setEnabled(false);
         jToolAusschneiden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolAusschneiden.setMargin(new java.awt.Insets(0, 20, 0, 20));
         jToolAusschneiden.setMaximumSize(new java.awt.Dimension(40, 40));
@@ -100,38 +105,52 @@ public class View extends javax.swing.JFrame {
         ToolBar.add(jToolAusschneiden);
 
         jToolEinfuegen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/einfuegen.gif"))); // NOI18N
-        jToolEinfuegen.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolEinfuegen.setFocusable(false);
+        jToolEinfuegen.setDisabledIcon(null);
         jToolEinfuegen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolEinfuegen.setMargin(new java.awt.Insets(0, 20, 0, 20));
         jToolEinfuegen.setMaximumSize(new java.awt.Dimension(40, 40));
         jToolEinfuegen.setMinimumSize(new java.awt.Dimension(50, 30));
         jToolEinfuegen.setPreferredSize(new java.awt.Dimension(50, 30));
         jToolEinfuegen.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolEinfuegen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToolEinfuegenActionPerformed(evt);
+            }
+        });
         ToolBar.add(jToolEinfuegen);
 
         jToolGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
         jToolGrossbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Großbuchstaben um.");
-        jToolGrossbuchstaben.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolGrossbuchstaben.setFocusable(false);
+        jToolGrossbuchstaben.setDisabledIcon(null);
+        jToolGrossbuchstaben.setEnabled(false);
         jToolGrossbuchstaben.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolGrossbuchstaben.setMargin(new java.awt.Insets(0, 20, 0, 20));
         jToolGrossbuchstaben.setMaximumSize(new java.awt.Dimension(40, 40));
         jToolGrossbuchstaben.setMinimumSize(new java.awt.Dimension(50, 30));
         jToolGrossbuchstaben.setPreferredSize(new java.awt.Dimension(50, 30));
         jToolGrossbuchstaben.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolGrossbuchstaben.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToolGrossbuchstabenActionPerformed(evt);
+            }
+        });
         ToolBar.add(jToolGrossbuchstaben);
 
         jToolKleinbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/klein.gif"))); // NOI18N
         jToolKleinbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Kleinbuchstaben um.");
-        jToolKleinbuchstaben.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
-        jToolKleinbuchstaben.setFocusable(false);
+        jToolKleinbuchstaben.setDisabledIcon(null);
+        jToolKleinbuchstaben.setEnabled(false);
         jToolKleinbuchstaben.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolKleinbuchstaben.setMargin(new java.awt.Insets(0, 20, 0, 20));
         jToolKleinbuchstaben.setMaximumSize(new java.awt.Dimension(40, 40));
         jToolKleinbuchstaben.setMinimumSize(new java.awt.Dimension(50, 30));
         jToolKleinbuchstaben.setPreferredSize(new java.awt.Dimension(50, 30));
         jToolKleinbuchstaben.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolKleinbuchstaben.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToolKleinbuchstabenActionPerformed(evt);
+            }
+        });
         ToolBar.add(jToolKleinbuchstaben);
 
         jButtonGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
@@ -171,6 +190,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemAusschneiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
         jMenuItemAusschneiden.setText("Ausschneiden");
         jMenuItemAusschneiden.setToolTipText("Kopiert den ausgewählen Text in die Zwischenablage und entfernt den selektierten Text.");
+        jMenuItemAusschneiden.setEnabled(false);
         jMenuItemAusschneiden.setFocusable(true);
         jMenuItemAusschneiden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +203,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemKopieren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/kopieren.gif"))); // NOI18N
         jMenuItemKopieren.setText("Kopieren");
         jMenuItemKopieren.setToolTipText("Kopiert den ausgewählen Text in die Zwischenablage.");
+        jMenuItemKopieren.setEnabled(false);
         jMenuItemKopieren.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemKopierenActionPerformed(evt);
@@ -206,12 +227,24 @@ public class View extends javax.swing.JFrame {
         jMenuItemGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
         jMenuItemGrossbuchstaben.setText("Großbuchstaben");
         jMenuItemGrossbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Großbuchstaben um.");
+        jMenuItemGrossbuchstaben.setEnabled(false);
+        jMenuItemGrossbuchstaben.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGrossbuchstabenActionPerformed(evt);
+            }
+        });
         MenueBearbeiten.add(jMenuItemGrossbuchstaben);
 
         jMenuItemKleinbuchstaben.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemKleinbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/klein.gif"))); // NOI18N
         jMenuItemKleinbuchstaben.setText("Kleinbuchstaben");
         jMenuItemKleinbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Kleinbuchstaben um.");
+        jMenuItemKleinbuchstaben.setEnabled(false);
+        jMenuItemKleinbuchstaben.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemKleinbuchstabenActionPerformed(evt);
+            }
+        });
         MenueBearbeiten.add(jMenuItemKleinbuchstaben);
 
         MenueBar.add(MenueBearbeiten);
@@ -268,6 +301,34 @@ public class View extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItemBeendenActionPerformed
 
+    private void jToolGrossbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolGrossbuchstabenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToolGrossbuchstabenActionPerformed
+
+    private void jButtonGrossbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGrossbuchstabenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGrossbuchstabenActionPerformed
+
+    private void jButtonKleinbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKleinbuchstabenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonKleinbuchstabenActionPerformed
+
+    private void jToolKleinbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolKleinbuchstabenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToolKleinbuchstabenActionPerformed
+
+    private void jToolEinfuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolEinfuegenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToolEinfuegenActionPerformed
+
+    private void jToolAusschneidenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolAusschneidenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToolAusschneidenActionPerformed
+
+    private void jToolKopierenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolKopierenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToolKopierenActionPerformed
+
     private void jMenuItemAusschneidenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAusschneidenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemAusschneidenActionPerformed
@@ -280,17 +341,13 @@ public class View extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemEinfuegenActionPerformed
 
-    private void jButtonGrossbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGrossbuchstabenActionPerformed
+    private void jMenuItemGrossbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGrossbuchstabenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonGrossbuchstabenActionPerformed
+    }//GEN-LAST:event_jMenuItemGrossbuchstabenActionPerformed
 
-    private void jButtonKleinbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKleinbuchstabenActionPerformed
+    private void jMenuItemKleinbuchstabenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemKleinbuchstabenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonKleinbuchstabenActionPerformed
-
-    private void jToolAusschneidenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToolAusschneidenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToolAusschneidenActionPerformed
+    }//GEN-LAST:event_jMenuItemKleinbuchstabenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,7 +410,29 @@ public class View extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
+    
+    
+    
+    DocumentListener documentListener = new DocumentListener() {
+      public void changedUpdate(DocumentEvent documentEvent) {
+        System.out.println("Changed Update");
+      }
+      public void insertUpdate(DocumentEvent documentEvent) {
+        System.out.println("Insert Update");
+        // Mind. ein Zeichen vorhanden --> Buttons aktivieren
+      }
+      public void removeUpdate(DocumentEvent documentEvent) {
+        System.out.println("Remove Update");
+        // Mind. ein Zeichen gelöscht - überprüfen ob leer - wenn nicht, dann Buttons aktiv. Wenn doch, dann Buttons deaktivieren.
+      }
+      
+    };
+    
 
+public void DocumentListener (){
+    TextAreaLinks.getDocument().addDocumentListener(documentListener);
+    TextAreaRechts.getDocument().addDocumentListener(documentListener);
+}
 
 
 
