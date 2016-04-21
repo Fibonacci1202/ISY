@@ -5,10 +5,14 @@
  */
 package aufgabe2;
 
+import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -24,6 +28,7 @@ public class View extends javax.swing.JFrame {
     public View() {
         initComponents();
         DocumentListener();
+        CaretListener();
     }
 
     /**
@@ -35,6 +40,7 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ButtonGruppe = new javax.swing.ButtonGroup();
         jScrollPaneLinks = new javax.swing.JScrollPane();
         TextAreaLinks = new javax.swing.JTextArea();
         jScrollPaneRechts = new javax.swing.JScrollPane();
@@ -74,6 +80,7 @@ public class View extends javax.swing.JFrame {
         ToolBar.setRollover(true);
 
         jToolKopieren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/kopieren.gif"))); // NOI18N
+        ButtonGruppe.add(jToolKopieren);
         jToolKopieren.setDisabledIcon(null);
         jToolKopieren.setEnabled(false);
         jToolKopieren.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -90,6 +97,7 @@ public class View extends javax.swing.JFrame {
         ToolBar.add(jToolKopieren);
 
         jToolAusschneiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
+        ButtonGruppe.add(jToolAusschneiden);
         jToolAusschneiden.setEnabled(false);
         jToolAusschneiden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolAusschneiden.setMargin(new java.awt.Insets(0, 20, 0, 20));
@@ -121,6 +129,7 @@ public class View extends javax.swing.JFrame {
 
         jToolGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
         jToolGrossbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Großbuchstaben um.");
+        ButtonGruppe.add(jToolGrossbuchstaben);
         jToolGrossbuchstaben.setDisabledIcon(null);
         jToolGrossbuchstaben.setEnabled(false);
         jToolGrossbuchstaben.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -138,6 +147,7 @@ public class View extends javax.swing.JFrame {
 
         jToolKleinbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/klein.gif"))); // NOI18N
         jToolKleinbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Kleinbuchstaben um.");
+        ButtonGruppe.add(jToolKleinbuchstaben);
         jToolKleinbuchstaben.setDisabledIcon(null);
         jToolKleinbuchstaben.setEnabled(false);
         jToolKleinbuchstaben.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -156,6 +166,8 @@ public class View extends javax.swing.JFrame {
         jButtonGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
         jButtonGrossbuchstaben.setText("Großbuchstaben");
         jButtonGrossbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Großbuchstaben um.");
+        ButtonGruppe.add(jButtonGrossbuchstaben);
+        jButtonGrossbuchstaben.setEnabled(false);
         jButtonGrossbuchstaben.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGrossbuchstabenActionPerformed(evt);
@@ -165,6 +177,8 @@ public class View extends javax.swing.JFrame {
         jButtonKleinbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/klein.gif"))); // NOI18N
         jButtonKleinbuchstaben.setText("Kleinbuchstaben");
         jButtonKleinbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Kleinbuchstaben um.");
+        ButtonGruppe.add(jButtonKleinbuchstaben);
+        jButtonKleinbuchstaben.setEnabled(false);
         jButtonKleinbuchstaben.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonKleinbuchstabenActionPerformed(evt);
@@ -190,6 +204,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemAusschneiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/ausschneiden.gif"))); // NOI18N
         jMenuItemAusschneiden.setText("Ausschneiden");
         jMenuItemAusschneiden.setToolTipText("Kopiert den ausgewählen Text in die Zwischenablage und entfernt den selektierten Text.");
+        ButtonGruppe.add(jMenuItemAusschneiden);
         jMenuItemAusschneiden.setEnabled(false);
         jMenuItemAusschneiden.setFocusable(true);
         jMenuItemAusschneiden.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +218,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemKopieren.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/kopieren.gif"))); // NOI18N
         jMenuItemKopieren.setText("Kopieren");
         jMenuItemKopieren.setToolTipText("Kopiert den ausgewählen Text in die Zwischenablage.");
+        ButtonGruppe.add(jMenuItemKopieren);
         jMenuItemKopieren.setEnabled(false);
         jMenuItemKopieren.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,6 +243,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemGrossbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/gross.gif"))); // NOI18N
         jMenuItemGrossbuchstaben.setText("Großbuchstaben");
         jMenuItemGrossbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Großbuchstaben um.");
+        ButtonGruppe.add(jMenuItemGrossbuchstaben);
         jMenuItemGrossbuchstaben.setEnabled(false);
         jMenuItemGrossbuchstaben.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,6 +256,7 @@ public class View extends javax.swing.JFrame {
         jMenuItemKleinbuchstaben.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aufgabe2/Symbole/klein.gif"))); // NOI18N
         jMenuItemKleinbuchstaben.setText("Kleinbuchstaben");
         jMenuItemKleinbuchstaben.setToolTipText("Wandelt den ausgewählten Text in Kleinbuchstaben um.");
+        ButtonGruppe.add(jMenuItemKleinbuchstaben);
         jMenuItemKleinbuchstaben.setEnabled(false);
         jMenuItemKleinbuchstaben.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -385,6 +403,7 @@ public class View extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup ButtonGruppe;
     private javax.swing.JMenuBar MenueBar;
     private javax.swing.JMenu MenueBearbeiten;
     private javax.swing.JMenu MenueDatei;
@@ -409,34 +428,52 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton jToolKopieren;
     // End of variables declaration//GEN-END:variables
 
-
-    
-    
-    
     DocumentListener documentListener = new DocumentListener() {
-      public void changedUpdate(DocumentEvent documentEvent) {
-        System.out.println("Changed Update");
-      }
-      public void insertUpdate(DocumentEvent documentEvent) {
-        System.out.println("Insert Update");
-        // Mind. ein Zeichen vorhanden --> Buttons aktivieren
-      }
-      public void removeUpdate(DocumentEvent documentEvent) {
-        System.out.println("Remove Update");
-        // Mind. ein Zeichen gelöscht - überprüfen ob leer - wenn nicht, dann Buttons aktiv. Wenn doch, dann Buttons deaktivieren.
-      }
-      
+        public void changedUpdate(DocumentEvent documentEvent) {
+            System.out.println("Changed Update");
+        }
+
+        public void insertUpdate(DocumentEvent documentEvent) {
+            System.out.println("Insert Update");
+        }
+
+        public void removeUpdate(DocumentEvent documentEvent) {
+            System.out.println("Remove Update");
+        }
+        
     };
     
+    public void AktiviereButtons(boolean a){
+        Enumeration<AbstractButton> enumeration = ButtonGruppe.getElements();
+                while (enumeration.hasMoreElements()) {
+                    enumeration.nextElement().setEnabled(a);
+                }
+    }
+    
+    CaretListener caretlistener = new CaretListener(){
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            int punkt = e.getDot();
+            int markierung = e.getMark();
+            if(punkt==markierung){
+                AktiviereButtons(false);
+            }
+            else
+            {
+                AktiviereButtons(true);
+            }
+        }
+        
+    };
 
-public void DocumentListener (){
-    TextAreaLinks.getDocument().addDocumentListener(documentListener);
-    TextAreaRechts.getDocument().addDocumentListener(documentListener);
-}
-
-
-
-
-
+    public void DocumentListener() {
+        TextAreaLinks.getDocument().addDocumentListener(documentListener);
+        TextAreaRechts.getDocument().addDocumentListener(documentListener);
+    }
+    
+    public void CaretListener(){
+        TextAreaLinks.addCaretListener(caretlistener);
+        TextAreaRechts.addCaretListener(caretlistener);
+    }
 
 }
